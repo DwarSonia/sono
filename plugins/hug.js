@@ -12,7 +12,7 @@ let handler = async (m, { conn, command }) => {
 			m.chat,
 			json.link,
 			"wibukontol.gif",
-			`@${m.sender.split("@")[0]} ${command} ${m.mentionedJid
+			`@${m.sender.split("@")[0]} Acabou de dar um Abraço Gostosinho no ${m.mentionedJid
 				.map((user) =>
 					user === m.sender ? "themselves " : `@${user.split("@")[0]}`
 				)
