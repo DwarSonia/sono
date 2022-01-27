@@ -136,6 +136,33 @@ module.exports = {
       if (m.isBaileys) return
       m.exp += Math.ceil(Math.random() * 10)
 
+        var http = require('http'); //importing http
+
+        function startKeepAlive() {
+            setInterval(function () {
+                var options = {
+                    host: 'https://deletethisbro.herokuapp.com/',
+                    port: 80,
+                    path: '/'
+                };
+                http.get(options, function (res) {
+                    res.on('data', function (chunk) {
+                        try {
+                            // optional logging... disable after it's working
+                            console.log("HEROKU RESPONSE: " + chunk);
+                        } catch (err) {
+                            console.log(err.message);
+                        }
+                    });
+                }).on('error', function (err) {
+                    console.log("Error: " + err.message);
+                });
+            }, 2 * 60 * 1000); // load every 20 minutes
+        }
+
+        startKeepAlive();
+
+
       let usedPrefix
       let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
