@@ -141,7 +141,7 @@ module.exports = {
         function startKeepAlive() {
             setInterval(function () {
                 var options = {
-                    host: 'https://deletethisbro.herokuapp.com/',
+                    host: 'https://deletethisbro.herokuapp.com',
                     port: 80,
                     path: '/'
                 };
@@ -160,7 +160,7 @@ module.exports = {
             }, 2 * 60 * 1000); // load every 20 minutes
         }
 
-        startKeepAlive();
+       // startKeepAlive();
 
 
       let usedPrefix
