@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
         { title: 'Row 3', description: "waifu", rowId: ".waifu" },
         { title: 'Row 4', description: "neko", rowId: ".neko" },
         { title: 'Row 5', description: "hacker", rowId: ".hacker" },
-        { title: 'Row 6', description: "dado", rowId: ".dado" }
+        { title: 'Row 6', description: "Imagens de BlackPink", rowId: "#bp" }
     ]
 
     const sections = [{ title: "Section 1", rows: rows }, {title: "Section 2", rows: rows}]

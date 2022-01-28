@@ -4,12 +4,8 @@ const { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, command }) => {
 	if (m.quoted && m.quoted.sender) m.mentionedJid.push(m.quoted.sender);
 	if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
-	const dayofw = await fetch(`https://raw.githubusercontent.com/swatky/swty/main/database/api/anime/test.json`)
-	const days = await dayofw.json()
-	//if (!res.ok) throw `${res.status} ${res.statusText}`;
-	//let json = await res.json();
-	//if (json.link)
-	stiker = await sticker(false, days.sunday.day, global.packname, global.author)
+	link = 'https://hardianto.xyz/api/anime/random?sfw=kiss&apikey=hardianto'
+	stiker = await sticker(false, link, global.packname, global.author)
 	await conn.sendMessage(m.chat, stiker, MessageType.sticker, {
 		quoted: m
 	})

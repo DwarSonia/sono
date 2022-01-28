@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
         throw `Limit apikey habis atau error!`
     }
 }
-handler.help = ['wallpaperanime']
+handler.help = ['wallpaperanime', 'wp']
 handler.tags = ['internet']
 handler.command = /^(wallpaper|wp)anime$/i
 handler.limit = true

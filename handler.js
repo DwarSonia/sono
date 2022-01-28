@@ -449,7 +449,7 @@ Untuk mematikan fitur ini, ketik
       this.sendJSON(nodePayload, tag)
       m.reply('Dimohon untuk tidak menelpon bot!')
     }
-  }
+    }
 }
 
 global.dfail = (type, m, conn) => {
@@ -476,3 +476,4 @@ fs.watchFile(file, () => {
   delete require.cache[file]
   if (global.reloadHandler) console.log(global.reloadHandler())
 })
+
