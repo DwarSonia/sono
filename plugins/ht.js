@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
     delete conn.hartatahta[m.chat]
   }
 }
-handler.help = ['tahta <teks>']
+handler.help = ['tahta <texto>']
 handler.tags = ['nulis']
 handler.command = /^((harta)?tahta)$/i
 handler.limit = true

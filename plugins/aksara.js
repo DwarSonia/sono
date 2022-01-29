@@ -29,7 +29,7 @@ ${usedPrefix + command} latinkejawa selamat pagi
             throw er
     }
 }
-handler.help = ['aksara'].map(v => v + ' <opsi> <teks>')
+handler.help = ['aksara'].map(v => v + ' <opsi> <texto>')
 handler.tags = ['tools']
 handler.command = /^aksara$/i
 

@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix, text }) => {
   conn.reply(m.chat, `_Berhasil mengirim broadcast ke ${users.length} nomor yang jadi bot_
 ${users.map(v => 'wa.me/' + v.replace(/[^0-9]/g, '') + `?text=${usedPrefix}menu`).join('\n')}`.trim(), m)
 }
-handler.help = ['broadcastjadibot', 'bcbot'].map(v => v + ' <teks>')
+handler.help = ['broadcastjadibot', 'bcbot'].map(v => v + ' <texto>')
 handler.tags = ['host']
 handler.command = /^(broadcast|bc)(jadi)?bot$/i
 handler.owner = true

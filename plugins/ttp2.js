@@ -17,7 +17,7 @@ let handler = async (m, { conn, text }) => {
     throw false
   }
 }
-handler.help = ['ttp2 <teks>']
+handler.help = ['ttp2 <texto>']
 handler.tags = ['sticker']
 handler.command = /^(ttp2)$/i
 handler.limit = true

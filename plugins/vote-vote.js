@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
     let id = m.chat
     conn.vote = conn.vote ? conn.vote : {}
-    if (!(id in conn.vote)) return conn.sendButton(m.chat, `Tidak ada voting di chat ini!`, '© wabot-aq', 'Mulai', `${usedPrefix}+vote`, conn.vote[id][3])
+    if (!(id in conn.vote)) return conn.sendButton(m.chat, `Tidak ada voting di chat ini!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+vote`, conn.vote[id][3])
     let isVote = conn.vote[id][1].concat(conn.vote[id][2])
     const wasVote = isVote.includes(m.sender)
     if (wasVote) throw 'Kamu sudah vote!'
@@ -24,7 +24,7 @@ Alasan: ${reason}
 │ _Total: ${devote.length}_
 │ ${devote.map(u => '@' + u.split('@')[0]).join('\n')}
 ╰────
-`.trim(), '© wabot-aq', 'Upvote', `${usedPrefix}upvote`, 'Devote', `${usedPrefix}devote`, m)
+`.trim(), 'Kitagawa ✨', 'Upvote', `${usedPrefix}upvote`, 'Devote', `${usedPrefix}devote`, m)
 }
 handler.help = ['upvote', 'devote']
 handler.tags = ['vote']

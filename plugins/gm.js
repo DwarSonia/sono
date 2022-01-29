@@ -1,6 +1,5 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
-	number = '12173311845'
 	const dayofw = await fetch(`https://raw.githubusercontent.com/swatky/swty/main/database/api/anime/dayofweek.json`)
 	const days = await dayofw.json()
 	conn.sendFile(m.chat, days.sunday.image, '', days.sunday.desc, m)

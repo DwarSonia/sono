@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `Uhm.. teksnya mana?\n\nContoh:\n${usedPrefix + command} naruto`
+  if (!text) throw `Hum... Onde está o Texto?\n\nExemplo:\n${usedPrefix + command} naruto`
   let res = await fetch(API('https://api.jikan.moe', '/v3/search/anime', { q: text }))
   if (!res.ok) throw await res.text()
   let json = await res.json()

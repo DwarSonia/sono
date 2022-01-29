@@ -2,8 +2,8 @@ const { joox } = require('../lib/scrape_joox')
 
 const isUrl = str => /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi.test(str)
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `*Perintah ini untuk mencari lagu joox berdasarkan pencarian*\n\ncontoh:\n${usedPrefix + command} akad`
-    if (isUrl(text)) throw `*Perintah ini untuk mencari lagu joox berdasarkan pencarian bukan link*\n\ncontoh:\n${usedPrefix + command} akad`
+    if (!text) throw `*Perintah ini untuk mencari lagu joox berdasarkan pencarian*\n\nExemplo:\n${usedPrefix + command} akad`
+    if (isUrl(text)) throw `*Perintah ini untuk mencari lagu joox berdasarkan pencarian bukan link*\n\nExemplo:\n${usedPrefix + command} akad`
     let json = await joox(text)
     let result = json.data[Math.floor(Math.random() * json.data.length)]
     let pesan = `

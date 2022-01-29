@@ -5,7 +5,7 @@ module.exports = {
         if (m.chat.endsWith('broadcast') || chat.isBanned || !chat.getmsg || user.banned || m.isBaileys) return
         let msgs = db.data.msgs
         if (!(m.text in msgs)) return
-        if (msgs[m.text].locked) if (!isROwner) return m.reply('Dikunci!')
+        if (msgs[m.text].locked) if (!isROwner) return m.reply('Bloqueado!')
         let _m = this.serializeM(JSON.parse(JSON.stringify(msgs[m.text]), (_, v) => {
             if (
                 v !== null &&

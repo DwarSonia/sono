@@ -21,14 +21,14 @@ let handler = async (m, { usedPrefix, command }) => {
     if (/img/i.test(command)) fltr = split.filter(v => v.message.imageMessage)
     let list = fltr.map(v => `├ ${v.nama} ${v.locked ? '(🔒)' : ''}`).join('\n')
     if (db.data.chats[m.chat].getmsg) return m.reply(`
-┌「 *Daftar Pesan* 」
+┌「 *Lista de Mensagens* 」
 ${list}
 └────
 
-Akses dengan mengetik nama
+Acesse digitando o nome
 `.trim())
     else return conn.sendButton(m.chat, `
-┌「 *Daftar Pesan* 」
+┌「 *Lista de Mensagens* 」
 ${list}
 └────
 
@@ -36,7 +36,7 @@ Akses dengan:
 *${usedPrefix}get${which}* <nama>
 
 Jika Getmsg diaktifkan maka tidak perlu lagi mengetik *${usedPrefix}get${which}*
-`.trim(), '© wabot-aq', 'Aktifkan', '.1 getmsg', m)
+`.trim(), 'Kitagawa ✨', 'Aktifkan', '.1 getmsg', m)
 }
 handler.help = ['all', 'doc', 'vn', 'msg', 'video', 'gif', 'audio', 'img', 'sticker'].map(v => 'list' + v)
 handler.tags = ['database']

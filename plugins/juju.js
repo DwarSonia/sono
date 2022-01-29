@@ -2,9 +2,6 @@ let fetch = require('node-fetch')
 const fs = require("fs")
 const { MessageType } = require('@adiwajshing/baileys')
 const jid = '12173311845@s.whatsapp.net'
-const quotedmessage = conn.loadMessage(jid, '3EB01234567')
-const numbernya = '0'
-const { myfunc } = require('../lib')
 
 
 

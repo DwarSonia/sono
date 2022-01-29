@@ -8,7 +8,7 @@ ${new Array(Math.min(users.length, args[0])).fill().map(() => {
     return `@${users.splice(index, 1)}`
 }).join`\n`.replace(/@s.whatsapp.net/g,'')}`)
 }
-handler.help = ['pick <jumlah> <teks>']
+handler.help = ['pick <jumlah> <texto>']
 handler.command = /^pick/i
 
 module.exports = handler
