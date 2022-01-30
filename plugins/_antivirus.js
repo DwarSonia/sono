@@ -1,7 +1,7 @@
 let handler = m => m
 
 handler.all = async function (m, { isBotAdmin }) {
-    if (m.messageStubType === 68) { //Auto clear jika terdapat pesan yg tidak dapat dilihat oleh whatsapp web
+    if (m.messageStubType === 68) { // Limpar automaticamente se houver mensagens que não podem ser vistas pelo whatsapp web
         let log = {
             key: m.key,
             content: m.msg,

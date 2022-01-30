@@ -152,18 +152,18 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     default:
       if (!/[01]/.test(command)) throw `
-╭─「 Opsi 」${isOwner ? '\n' + o.map(v => '│ ' + v).join`\n` : ''}${m.isGroup ? '\n' + gc.map(v => '│ ' + v).join`\n` : ''}
+╭─「 Opção 」${isOwner ? '\n' + o.map(v => '│ ' + v).join`\n` : ''}${m.isGroup ? '\n' + gc.map(v => '│ ' + v).join`\n` : ''}
 ${ch.map(v => '│ ' + v).join`\n`}
 ╰────
 
-Contoh:
+exemplo:
 ${usedPrefix}enable welcome
 ${usedPrefix}disable welcome
 `.trim()
       throw false
   }
   m.reply(`
-*${type}* berhasil *di${isEnable ? 'nyala' : 'mati'}kan* ${isAll ? 'untuk bot ini' : isUser ? '' : 'untuk chat ini'}
+*${type}* ter sucesso *di${isEnable ? 'chama' : 'morto'}poderia* ${isAll ? 'para este barco' : isUser ? '' : 'para este bate-papo'}
 `.trim())
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')

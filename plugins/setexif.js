@@ -13,8 +13,8 @@ let handler = async (m, { usedPrefix, command, args }) => {
             sauthor: `${teks[1]}`,
         }, null, 4), function (err) {
             if (err) throw err;
-            console.log('Replaced!');
-            m.reply(`Sukses mengganti exif
+            console.log('Substituído!');
+            m.reply(`Sucesso substituir Exif
             
 *Packname*: ${stek1}
 *Author*: ${stek2}
@@ -23,7 +23,7 @@ let handler = async (m, { usedPrefix, command, args }) => {
         global.packname = stek1
         global.author = stek2
     } else {
-        m.reply(`Format salah ${usedPrefix + command} <packname>|<owner>`)
+        m.reply(`Formato incorreto ${usedPrefix + command} <packname>|<owner>`)
     }
 
 }

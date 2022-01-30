@@ -1,9 +1,9 @@
 // NurNurz
 let handler = async (m, { conn, text }) => {
-  if (!text) throw `Masukan Nama Baru Untuk Bot`
+  if (!text) throw `Digite um novo nome para o barco`
   try {
     await conn.updateProfileName(text)
-    conn.reply(m.chat, 'Sukses Mengganti Nama Bot', m)
+    conn.reply(m.chat, 'Sucesso ao renomear o bot', m)
   } catch (e) {
     console.log(e)
     throw `Error`

@@ -30,7 +30,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                 conn.sendFile(m.chat, buff, ran, null, m, /vn/.test(args[0]), { quoted: m, mimetype: 'audio/mp4' })
                 await fs.unlinkSync(filename)
             })
-        } else throw `Balas vn/audio yang ingin diubah dengan caption *${usedPrefix + command}*`
+        } else throw `Responda ao vn/audio que você deseja alterar com legenda *${usedPrefix + command}*`
     } catch (e) {
         throw e
     }

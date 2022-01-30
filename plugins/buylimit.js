@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, args }) => {
     global.db.data.users[m.sender].exp -= xpperlimit * count
     global.db.data.users[m.sender].limit += count
     conn.reply(m.chat, `-${xpperlimit * count} XP\n+ ${count} Limit`, m)
-  } else conn.reply(m.chat, `XP tidak mencukupi untuk membeli ${count} limit`, m)
+  } else conn.reply(m.chat, `XP não é suficiente para comprar ${count} limit`, m)
 }
 handler.help = ['buy<jumlah limit>', 'buy <jumlah limit>', 'buyall']
 handler.tags = ['xp']

@@ -11,10 +11,10 @@ ${json.artikel}\n\n
 ${json.url}
   `.trim(), m)
 }
-handler.help = ['detik', 'kompas', 'liputan6', 'tribun', 'jalantikus']
+handler.help = ['segundos', 'kompas', 'liputan6', 'tribun', 'jalantikus']
 handler.tags = ['berita']
 
-handler.command = /^detik|kompas|liputan6|tribun|jalantikus$/i
+handler.command = /^segundos|kompas|liputan6|tribun|jalantikus$/i
 
 
 module.exports = handler

@@ -3,14 +3,14 @@ let handler = async (m, { conn }) => {
     let users = Object.entries(global.db.data.users).filter(user => user[1].banned)
 
     m.reply(`
-╭─「 Daftar Chat Terbanned 」
+╭─「 Lista de bate-papos banidos 」
 │ Total : ${chats.length} Chat${chats ? '\n' + chats.map(([jid], i) => `
 │ ${i + 1}. ${conn.getName(jid) == undefined ? 'Unknown' : conn.getName(jid)}
 │ ${jid}
 `.trim()).join('\n') : ''}
 ╰────
 
-╭─「 Daftar User Terbanned 」
+╭─「 Lista de usuários banidos 」
 │ Total : ${users.length} User${users ? '\n' + users.map(([jid], i) => `
 │ ${i + 1}. ${conn.getName(jid) == undefined ? 'Unknown' : conn.getName(jid)}
 │ ${jid}

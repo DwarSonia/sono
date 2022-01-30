@@ -2,14 +2,14 @@ let fetch = require('node-fetch')
 
 let handler = async (m, { args, usedPrefix, command }) => {
     let er = `
-╭─「 Opsi 」
+╭─「 Opção 」
 │ latinkejawa
 │ latinkesunda
 │ jawakelatin
 │ sundakelatin
 ╰────
 
-Contoh penggunaan:
+Exemplos de uso:
 ${usedPrefix + command} latinkejawa selamat pagi
     `.trim()
     if (!args[0]) throw er
@@ -29,7 +29,7 @@ ${usedPrefix + command} latinkejawa selamat pagi
             throw er
     }
 }
-handler.help = ['aksara'].map(v => v + ' <opsi> <texto>')
+handler.help = ['aksara'].map(v => v + ' <Opção> <texto>')
 handler.tags = ['tools']
 handler.command = /^aksara$/i
 

@@ -1,8 +1,8 @@
 const quotes = require('../lib/jagokata')
 let handler = async (m, { command, args, usedPrefix }) => {
-    let er = `contoh:\n\n${usedPrefix + command} cinta
+    let er = `exemplo:\n\n${usedPrefix + command} cinta
 
-Opsi Tersedia:
+Opção Tersedia:
 • cinta
 • rindu
 • mimpi
@@ -37,7 +37,7 @@ https://neoxr-api.herokuapp.com/docs`
             throw er
     }
 }
-handler.help = ['katabijak'].map(v => v + ' <opsi>')
+handler.help = ['katabijak'].map(v => v + ' <Opção>')
 handler.tags = ['internet']
 handler.command = /^(katabijak|jagokata)$/i
 

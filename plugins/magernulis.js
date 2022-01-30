@@ -5,7 +5,7 @@ let handler  = async (m, { command, conn, text }) => {
   let id = (command.match(/[1-6]$/) || [])[0] || ''
   await conn.sendFile(m.chat, global.API('xteam', '/magernulis' + id, {
     text,
-    nama: conn.getName(m.sender),
+    Nome: conn.getName(m.sender),
     kelas: ' '
   }, 'APIKEY'), 'nulis.jpg', 'Nahhh sudah jadi...', m)
 }

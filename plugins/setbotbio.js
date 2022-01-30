@@ -1,9 +1,9 @@
 // NurNurz
 let handler = async (m, { conn, text }) => {
-  if (!text) throw `Masukan Text Untuk Bio Baru Bot`
+    if (!text) throw `Digite o texto para a nova biografia do bot`
   try {
     await conn.setStatus(text)
-    conn.reply(m.chat, 'Sukses Mengganti Bio Bot', m)
+      conn.reply(m.chat, 'Sucesso na mudança do Bio Bot', m)
   } catch (e) {
     console.log(e)
     throw `Error`
@@ -11,7 +11,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['setbotbio']
 handler.tags = ['owner']
-handler.command = /^(setbotbio)$/i
+handler.command = /^(setbotbio|setbio)$/i
 handler.owner = true
 
 module.exports = handler

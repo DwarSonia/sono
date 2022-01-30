@@ -3,12 +3,12 @@ let handler = async (m, { conn, text }) => {
 	try {
 		if (conn.game) {
 			delete conn.game
-			conn.reply(m.chat, `Berhasil delete session ttt`, m)
+			conn.reply(m.chat, `Excluir sessão com sucesso ttt`, m)
 		} else if (conn.game) {
-			m.reply(`Session ttt🎮 tidak ada`)
+			m.reply(`Sessão ttt🎮 não existe`)
 		} else throw '?'
 	} catch (e) {
-		m.reply('rusak')
+		m.reply('danificado')
 	}
 }
 //BY RIZXYU

@@ -42,18 +42,18 @@ let handler = async (m, { conn }) => {
   let neww = performance.now()
   let speed = neww - old
   m.reply(`
-Merespon dalam ${speed} millidetik
+Responder em ${speed} milisegundos
 
 💬 Status :
-- *${groups.length}* Group Chats
-- *${groupsIn.length}* Groups Joined
-- *${groups.length - groupsIn.length}* Groups Left
-- *${chats.length - groups.length}* Personal Chats
-- *${chats.length}* Total Chats
+- *${groups.length}* Chats em Grupos
+- *${groupsIn.length}* Grupos Presentes
+- *${groups.length - groupsIn.length}* Grupo Kitado
+- *${chats.length - groups.length}* Chats em Privado
+- *${chats.length}* Total de Chats
 
-📱 *Phone Info* :
+📱 *Informações do telefone* :
 ${'```' + `
-🔋 Battery : ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Charging...' : '⚡ Discharging'}` : 'Unknown'}
+🔋 Battery : ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Carregando...' : '⚡ Descarregando'}` : 'Unknown'}
 ${util.format(conn.user.phone)}
 `.trim() + '```'}
 

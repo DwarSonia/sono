@@ -2,7 +2,7 @@ let linkRegex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
 
 let handler = async (m, { conn, text }) => {
   let [, code] = text.match(linkRegex) || []
-  if (!code) throw 'Link invalid'
+  if (!code) throw 'Link Inválido'
   let res = await conn.query({
     json: ["query", "invite", code],
     expect200: true

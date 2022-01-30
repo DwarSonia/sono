@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {}
     let id = m.chat
     if (id in conn.tebaklagu) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.tebaklagu[id][0])
+        conn.reply(m.chat, 'Ainda há perguntas sem resposta neste chat', conn.tebaklagu[id][0])
         throw false
     }
     // ubah isi 'id' kalo mau ganti playlist spotifynya
@@ -16,16 +16,16 @@ let handler = async (m, { conn, usedPrefix }) => {
     let json = result.result
     // if (!json.status) throw json
     let caption = `
-TEBAK JUDUL LAGU
-Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik *${usedPrefix}cek* untuk bantuan
+ACERTE O TÍTULO DA MÚSICA
+Timeout *${(timeout / 1000).toFixed(2)} segundos*
+Modelo *${usedPrefix}cek* para ajuda
 Bonus: ${poin} XP
-*Balas pesan ini untuk menjawab!*`.trim()
+*Responda a esta mensagem para responder!*`.trim()
     conn.tebaklagu[id] = [
         await m.reply(caption),
         json, poin,
         setTimeout(() => {
-            if (conn.tebaklagu[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.judul}*`, conn.tebaklagu[id][0])
+            if (conn.tebaklagu[id]) conn.reply(m.chat, `O tempo acabou!\nA resposta é*${json.judul}*`, conn.tebaklagu[id][0])
             delete conn.tebaklagu[id]
         }, timeout)
     ]

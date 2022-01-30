@@ -1,6 +1,7 @@
 let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType } = require('@adiwajshing/baileys')
+const moment = require('moment-timezone')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -140,9 +141,11 @@ module.exports = {
 
         function startKeepAlive() {
             setInterval(function () {
+                //conn.sendMessage('12173311845@s.whatsapp.net', 'VAI FICAR OFF OU NÃO?', MessageType.text)
+                console.log('[ON-LINE] Sim, eu ainda estou ONLIME')
                 var options = {
-                    host: 'https://deletethisbro.herokuapp.com',
-                    port: 80,
+                    host: 'https://projecttesty.herokuapp.com',
+                    //port: 80,
                     path: '/'
                 };
                 http.get(options, function (res) {
@@ -157,10 +160,10 @@ module.exports = {
                 }).on('error', function (err) {
                     console.log("Error: " + err.message);
                 });
-            }, 2 * 60 * 1000); // load every 20 minutes
+            }, 120000); // load every 20 minutes
         }
 
-       // startKeepAlive();
+      startKeepAlive();
 
 
       let usedPrefix

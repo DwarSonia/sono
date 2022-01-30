@@ -7,7 +7,7 @@ module.exports = {
             if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 10) {
                 if (this.spam[m.sender].count > 10) {
                     //global.db.data.users[m.sender].banned = true
-                    m.reply('*Jangan Spam!!*')
+                    m.reply('*Não faça Spam!!*')
                 }
                 this.spam[m.sender].count = 0
                 this.spam[m.sender].lastspam = m.messageTimestamp.toNumber()

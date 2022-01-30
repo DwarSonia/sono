@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix }) => {
     let id = m.chat
     conn.absen = conn.absen ? conn.absen : {}
-    if (!(id in conn.absen)) return conn.sendButton(m.chat, `Tidak ada absen berlangsung!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+absen`, m)
+    if (!(id in conn.absen)) return conn.sendButton(m.chat, `Não há faltas em andamento!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+absen`, m)
     let d = new Date
     let date = d.toLocaleDateString('id', {
         day: 'numeric',
@@ -11,10 +11,10 @@ let handler = async (m, { conn, usedPrefix }) => {
     let absen = conn.absen[id][1]
     let list = absen.map((v, i) => `│ ${i + 1}. @${v.split`@`[0]}`).join('\n')
     let caption = `
-Tanggal: ${date}
+Data: ${date}
 
 ${conn.absen[id][2] ? conn.absen[id][2] + '\n' : ''}
-╭─「 Daftar Absen 」
+╭─「 Lista de Ausências 」
 │ Total: ${absen.length}
 ${list}
 ╰────`.trim()

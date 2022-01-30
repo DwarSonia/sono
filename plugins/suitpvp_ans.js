@@ -16,24 +16,24 @@ handler.before = async function (m) {
       room.asal = m.chat
       clearTimeout(room.waktu)
       //delete room[room.id].waktu
-      m.reply(`Suit telah dikirimkan ke chat
+      m.reply(`Suit foi enviado para o chat
 @${room.p.split`@`[0]} dan 
 @${room.p2.split`@`[0]}
 
-Silahkan pilih suit di chat masing"
+Por favor, selecione um naipe no respectivo chat"
 klik wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
         contextInfo: {
           mentionedJid: [room.p, room.p2]
         }
       })
 
-      if (!room.pilih) this.send3Button(room.p, 'Silahkan pilih', `Menang +${room.poin}XP\nKalah -${room.poin_lose}XP`, 'Batu🗿', 'Batu', 'Kertas📄', 'Kertas', 'Gunting✂️', 'Gunting', m)
-      if (!room.pilih2) this.send3Button(room.p2, 'Silahkan pilih', `Menang +${room.poin}XP\nKalah -${room.poin_lose}XP`, 'Batu🗿', 'Batu', 'Kertas📄', 'Kertas', 'Gunting✂️', 'Gunting', m)
+      if (!room.pilih) this.send3Button(room.p, 'Por favor selecione', `Ganhar +${room.poin}XP\nKalah -${room.poin_lose}XP`, 'Batu🗿', 'Batu', 'Kertas📄', 'Kertas', 'Gunting✂️', 'Gunting', m)
+      if (!room.pilih2) this.send3Button(room.p2, 'Por favor selecione', `Ganhar +${room.poin}XP\nKalah -${room.poin_lose}XP`, 'Batu🗿', 'Batu', 'Kertas📄', 'Kertas', 'Gunting✂️', 'Gunting', m)
       room.waktu_milih = setTimeout(() => {
-        if (!room.pilih && !room.pilih2) this.reply(m.chat, `Kedua pemain tidak niat main,\nSuit dibatalkan`)
+        if (!room.pilih && !room.pilih2) this.reply(m.chat, `Ambos os jogadores não têm intenção de jogar,\nSuit cancelado`)
         else if (!room.pilih || !room.pilih2) {
           win = !room.pilih ? room.p2 : room.p
-          this.reply(m.chat, `@${(room.pilih ? room.p2 : room.p).split`@`[0]} tidak memilih suit, game berakhir`, m)
+          this.reply(m.chat, `@${(room.pilih ? room.p2 : room.p).split`@`[0]} não escolha Suit, Game Over`, m)
           db.data.users[win == room.p ? room.p : room.p2].exp += room.poin
           db.data.users[win == room.p ? room.p2 : room.p].exp -= room.poin_lose
         }
@@ -50,14 +50,14 @@ klik wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
     if (jwb && reg.test(m.text) && !room.pilih && !m.isGroup) {
       room.pilih = reg.exec(m.text.toLowerCase())[0]
       room.text = m.text
-      m.reply(`Kamu telah memilih ${m.text} ${!room.pilih2 ? `\n\nMenunggu lawan memilih` : ''}`)
-      if (!room.pilih2) this.reply(room.p2, '_Lawan sudah memilih_\nSekarang giliran kamu', 0)
+      m.reply(`Você escolheu ${m.text} ${!room.pilih2 ? `\n\nMenunggu lawan memilih` : ''}`)
+      if (!room.pilih2) this.reply(room.p2, '_Seu oponente escolheu_\nAgora é sua vez', 0)
     }
     if (jwb2 && reg.test(m.text) && !room.pilih2 && !m.isGroup) {
       room.pilih2 = reg.exec(m.text.toLowerCase())[0]
       room.text2 = m.text
-      m.reply(`Kamu telah memilih ${m.text} ${!room.pilih ? `\n\nMenunggu lawan memilih` : ''}`)
-      if (!room.pilih) this.reply(room.p, '_Lawan sudah memilih_\nSekarang giliran kamu', 0)
+      m.reply(`Você escolheu ${m.text} ${!room.pilih ? `\n\nMenunggu lawan memilih` : ''}`)
+      if (!room.pilih) this.reply(room.p, '_Seu oponente escolheu_\nAgora é sua vez', 0)
     }
     let stage = room.pilih
     let stage2 = room.pilih2
@@ -71,10 +71,10 @@ klik wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
       else if (k.test(stage) && g.test(stage2)) win = room.p2
       else if (stage == stage2) tie = true
       this.reply(room.asal, `
-_*Hasil Suit*_${tie ? '\nSERI' : ''}
+_*Resultado dos Suits*_${tie ? '\nSERI' : ''}
 
-@${room.p.split`@`[0]} (${room.text}) ${tie ? '' : room.p == win ? ` Menang \n+${room.poin}XP` : ` Kalah \n-${room.poin_lose}XP`}
-@${room.p2.split`@`[0]} (${room.text2}) ${tie ? '' : room.p2 == win ? ` Menang \n+${room.poin}XP` : ` Kalah \n-${room.poin_lose}XP`}
+@${room.p.split`@`[0]} (${room.text}) ${tie ? '' : room.p == win ? ` Ganhar \n+${room.poin}XP` : ` Perdido \n-${room.poin_lose}XP`}
+@${room.p2.split`@`[0]} (${room.text2}) ${tie ? '' : room.p2 == win ? ` Ganhar \n+${room.poin}XP` : ` Perdido \n-${room.poin_lose}XP`}
 `.trim(), m, { contextInfo: { mentionedJid: [room.p, room.p2] } })
       if (!tie) {
         db.data.users[win == room.p ? room.p : room.p2].exp += room.poin

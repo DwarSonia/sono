@@ -38,7 +38,7 @@ const defaultMenu = {
 │ Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]
 │ %totalexp XP in Total
 │ 
-│ Tanggal: *%week %weton, %date*
+│ Data: *%week %weton, %date*
 │ Tanggal Islam: *%dateIslamic*
 │ Waktu: *%time*
 │

@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.siapakahaku = conn.siapakahaku ? conn.siapakahaku : {}
     let id = m.chat
     if (id in conn.siapakahaku) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.siapakahaku[id][0])
+        conn.reply(m.chat, 'Ainda há perguntas sem resposta neste chat', conn.siapakahaku[id][0])
         throw false
     }
     let res = await fetch(global.API('xteam', '/game/siapakahaku', {}, 'APIKEY'))
@@ -14,17 +14,17 @@ let handler = async (m, { conn, usedPrefix }) => {
     let json = await res.json()
     if (!json.status) throw json
     let caption = `
-Siapakah aku? ${json.result.soal}
+Quem sou eu ${json.result.soal}
 
-Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}who untuk bantuan
+Timeout *${(timeout / 1000).toFixed(2)} segundos*
+Modelo ${usedPrefix}who para ajuda
 Bonus: ${poin} XP
 `.trim()
     conn.siapakahaku[id] = [
         await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.siapakahaku[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, conn.siapakahaku[id][0])
+            if (conn.siapakahaku[id]) conn.reply(m.chat, `O tempo acabou!\nA resposta é *${json.result.jawaban}*`, conn.siapakahaku[id][0])
             delete conn.siapakahaku[id]
         }, timeout)
     ]

@@ -7,16 +7,16 @@ const effects = ['jail', 'gay', 'glass', 'wasted' ,'triggered', 'lolice', 'simpc
 let handler = async (m, { conn, usedPrefix, text }) => {
     let effect = text.trim().toLowerCase()
   if (!effects.includes(effect)) throw `
-*Usage:* ${usedPrefix}stickmaker <effectname>
-*Example:* ${usedPrefix}stickmaker jail
+*Uso:* ${usedPrefix}stickmaker <effectname>
+*Exemplo:* ${usedPrefix}stickmaker jail
 
-*List Effect:*
+*Efeito de lista:*
 ${effects.map(effect => `_> ${effect}_`).join('\n')}
 `.trim()
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'No Image Found'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} not support`
+  if (!mime) throw 'Nenhuma imagem encontrada'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} não suportado`
   let img = await q.download()
   let url = await uploadImage(img)
   let apiUrl = global.API('https://some-random-api.ml/canvas/', encodeURIComponent(effect), {
@@ -28,7 +28,7 @@ try {
       quoted: m
     })
   } catch (e) {
-    m.reply('Conversion to Sticker Failed, Sending as Image Instead')
+    m.reply('Falha na conversão para adesivo, enviando como imagem em vez disso')
     await conn.sendFile(m.chat, apiUrl, 'image.png', null, m)
   }
 }

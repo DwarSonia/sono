@@ -1,7 +1,7 @@
 ﻿let fetch = require('node-fetch')
 const fs = require('fs-extra')
 const { MessageType } = require('@adiwajshing/baileys')
-const { reply2 } = require('../lib/replyDB')
+const { reply2, qtod } = require('../lib/replyDB')
 
 let handler = async (m, { conn }) => {
    
@@ -24,7 +24,7 @@ let handler = async (m, { conn }) => {
         listType: 1
     }
     //await reply2(m, { conn })
-    await conn.sendMessage(m.chat, button, MessageType.listMessage)
+    await conn.sendMessage(m.chat, button, MessageType.listMessage, qtod(m))
 
     // fecha o handle
 }

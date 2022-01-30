@@ -5,27 +5,27 @@ Made by Aine
 let handler = async (m, { conn }) => {
 	let img = 'https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg'
 	let dares = [
-"Foto kuburan tengah malam berani ga?",
-"Ambil foto bot, jadikan foto profil kamu selama 1 hari",
-"VN nyanyi balonku ada 5",
-"Kirim pesan ke mantan kamu dan bilang _aku masih suka sama kamu_",
-"Telfon crush/pacar sekarang dan ss ke pemain",
-"Pap ke salah satu anggota grup",
-"SS recent call whatsapp",
-"Kirim voice note bilang can i call u baby?",
-"Pake foto sule sampe 3 hari'",
-"Ketik pake bahasa daerah 24 jam",
-"Ganti nama menjadi _gue anak lucinta luna_ selama 5 jam",
-"Chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia _i lucky to hv you_",
-"Prank chat mantan dan bilang *i love u, pgn balikan*",
-"Record voice baca surah al-kautsar",
-"Ganti nama jadi *BOWO* selama 24 jam",
-"Sebutkan tipe pacar mu!",
-"VN *aku mencintaimu*",
-"Kamu harus pap sekarang!",
-"Kamu harus bagi bagi limit, minimal 2 setiap pengguna",
-"Chatingan selama 1 jam harus 4l4Y 8AN93T"
-] // tambahin kata kata sendiri 
+"Você é corajoso o suficiente para tirar uma foto de um cemitério à meia-noite?",
+"Tire uma foto do bot, faça dela sua foto de perfil por 1 dia",
+"VN cante meu balão há 5",
+"Envie uma mensagem para seu ex e diga _eu ainda gosto de você_",
+"Ligue para o crush/namorada agora e mande uma mensagem para o jogador",
+"Pap para um membro do grupo",
+"SS recente chamada whatsapp",
+"Enviar uma nota de voz dizendo posso te chamar de bebê?",
+"Use a foto de Sule por 3 dias'",
+"Modelo usa idioma local 24 horas",
+"Mudar nome para _gue lucinta luna_ por 5 horas",
+"Fale para entrar em contato com wa na ordem de acordo com o seu %batre, depois diga a ele _tenho sorte em hv você_",
+"Faça uma pegadinha com seu ex e diga *eu te amo, por favor, volte*",
+"Gravar voz leia surata al-kautsar",
+"Mude o nome para *BOWO* por 24 horas",
+"Diga seu tipo de namorado!",
+"VN *eu te amo*",
+"Você tem que papear agora!",
+"Você deve dividir o limite, pelo menos 2 por usuário",
+"Chat por 1 hora deve ser 4l4Y 8AN93T"
+] // adiciona palavras próprias
 	conn.sendFile(m.chat, img, 'maker.jpeg', `*DARE*\n\n“${pickRandom(dares)}”`, m, false, { thumbnail: Buffer.alloc(0) })
 }
 handler.help = ['dare']

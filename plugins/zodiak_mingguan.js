@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let { JSDOM } = require('jsdom')
 let handler = async (m, { conn, text, command, args }) => {
-	if (!text) throw `Ulangi dengan menambahkan zodiak\n*Contoh* : ${usedPrefix + command} libra
+	if (!text) throw `Ulangi dengan menambahkan zodiak\n*Exemplo* : ${usedPrefix + command} libra
 
 ▢ *List zodiak*
 
@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, command, args }) => {
 - Scorpio
 - Sagittarius
 - Capricorn`
-	gagal = 'Silahkan ulangi dengan menambahkan nama zodiak\n*Contoh* : /zodiak libra'
+	gagal = 'Silahkan ulangi dengan menambahkan nama zodiak\n*Exemplo* : /zodiak libra'
 	try {
 		let res = await fetch(`https://www.fimela.com/zodiak/${text}/minggu-ini`)
 		if (!res.ok) throw await res.text()

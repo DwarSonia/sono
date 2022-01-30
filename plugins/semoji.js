@@ -12,11 +12,11 @@ let handler = async (m, { usedPrefix, conn, args, text }) => {
     tipe = defaultType
   }
   if (!emoji) throw `
-Silahkan masukan emojinya
+Por favor, digite o emoji
 
-Misal ${usedPrefix}semoji whatsapp 😎
+Exemplo ${usedPrefix}semoji whatsapp 😎
 
-List Tipe:
+Tipo de lista:
 ${[
   "apple",
   "google",

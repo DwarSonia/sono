@@ -24,10 +24,10 @@ module.exports = {
             }))
             if (!isSurrender && 1 > (ok = room.game.turn(m.sender === room.game.playerO, parseInt(m.text) - 1))) {
                 m.reply({
-                    '-3': 'Game telah berakhir',
-                    '-2': 'Invalid',
-                    '-1': 'Posisi Invalid',
-                    0: 'Posisi Invalid',
+                    '-3': ' O jogo terminou',
+                    '-2': 'Invalido',
+                    '-1': 'Posição Inválida',
+                    0: 'Posição Inválida',
                 }[ok])
                 return !0
             }
@@ -57,22 +57,22 @@ module.exports = {
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
-${isWin ? `@${winner.split('@')[0]} Menang! (+${winScore} XP)` : isTie ? `Game berakhir (+${playScore} XP)` : `Giliran ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
+${isWin ? `@${winner.split('@')[0]} Ganhar! (+${winScore} XP)` : isTie ? `Fim de jogo (+${playScore} XP)` : `Vez ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
 
 ❌: @${room.game.playerX.split('@')[0]}
 ⭕: @${room.game.playerO.split('@')[0]}
-Ketik *nyerah* untuk nyerah
-Room ID: ${room.id}
+Digite *desista* para desistir
+Sala ID: ${room.id}
 `.trim()
             let users = global.db.data.users
             if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
                 room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-            if (room.x !== room.o) await this.sendButton(room.x, str, author, 'Nyerah', 'nyerah', m, {
+            if (room.x !== room.o) await this.sendButton(room.x, str, author, 'Desistir', 'desistir', m, {
                 contextInfo: {
                     mentionedJid: this.parseMention(str)
                 }
             })
-            await this.sendButton(room.o, str, author, 'Nyerah', 'nyerah', m, {
+            await this.sendButton(room.o, str, author, 'Desistir', 'desistir', m, {
                 contextInfo: {
                     mentionedJid: this.parseMention(str)
                 }

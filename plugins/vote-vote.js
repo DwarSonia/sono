@@ -1,10 +1,10 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
     let id = m.chat
     conn.vote = conn.vote ? conn.vote : {}
-    if (!(id in conn.vote)) return conn.sendButton(m.chat, `Tidak ada voting di chat ini!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+vote`, conn.vote[id][3])
+    if (!(id in conn.vote)) return conn.sendButton(m.chat, `Sem votação neste chat!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+vote`, conn.vote[id][3])
     let isVote = conn.vote[id][1].concat(conn.vote[id][2])
     const wasVote = isVote.includes(m.sender)
-    if (wasVote) throw 'Kamu sudah vote!'
+    if (wasVote) throw 'Você votou!'
     if (/up/i.test(command)) {
         conn.vote[id][1].push(m.sender)
     } else if (/de/i.test(command)) {
@@ -14,7 +14,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     conn.send2Button(m.chat, `
 「 Voting 」
 
-Alasan: ${reason}
+Razão: ${reason}
 
 ╭─「 Upvote 」
 │ _Total: ${upvote.length}_

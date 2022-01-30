@@ -16,7 +16,7 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
         let { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink } = global.db.data.chats[m.chat]
         const groupAdmins = getGroupAdmins(participants)
         let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n')
-        let text = `*「 Group Information 」*\n
+        let text = `*「 	Informações do Grupo 」*\n
 *ID:* 
 ${groupMetadata.id}
 

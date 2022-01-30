@@ -26,7 +26,7 @@ global.bucin = [
   "Kalau kamu jadi senar gitar, aku nggak mau jadi gitarisnya. Karena aku nggak mau mutusin kamu.",
   "Bila mencintaimu adalah ilusi, maka izinkan aku berimajinasi selamanya.",
   "Sayang... Tugas aku hanya mencintaimu, bukan melawan takdir.",
-  "Saat aku sedang bersamamu rasanya 1 jam hanya 1 detik, tetapi jika aku jauh darimu rasanya 1 hari menjadi 1 tahun.",
+  "Saat aku sedang bersamamu rasanya 1 jam hanya 1 segundos, tetapi jika aku jauh darimu rasanya 1 hari menjadi 1 tahun.",
   "Kolak pisang tahu sumedang, walau jarak membentang cintaku takkan pernah hilang.",
   "Aku ingin menjadi satu-satunya, bukan salah satunya.",
   "Aku tidak bisa berjanji untuk menjadi yang baik. Tapi aku berjanji akan selalu mendampingi kamu.",

@@ -15,7 +15,7 @@ handler.before = function (m, { isAdmin, isBotAdmin }) {
       if (global.opts) {
         if (isAdmin || !isBotAdmin){		  
         }else{
-          m.reply('*Sticker detected*\nKamu akan bot keluar kan!') // ganti text terserah kamu 
+            m.reply('*Adesivo detectado*\nVocê sairá do bot, certo!') // ganti text terserah kamu
           this.groupRemove(m.chat, [m.sender])
         }return true
       }

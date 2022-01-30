@@ -6,16 +6,16 @@ let handler = async (m, { conn, command, usedPrefix, text }) => {
     if (!m.quoted) throw 'Balas pesan!'
     if (!text) return conn.sendButton(m.chat, `Hum... Onde está o Texto?\n\nExemplo:\n${usedPrefix + command} tes`, 'Kitagawa ✨', 'Lista de Mensagens', `${usedPrefix}list${which}`, m)
     let msgs = db.data.msgs
-    if (text in msgs) return conn.sendButton(m.chat, `'${text}' telah terdaftar, gunakan nama lain!`, 'Kitagawa ✨', 'Lista de Mensagens', `${usedPrefix}list${which}`, m)
+    if (text in msgs) return conn.sendButton(m.chat, `'${text}' já registrado, use outro nome!`, 'Kitagawa ✨', 'Lista de Mensagens', `${usedPrefix}list${which}`, m)
     msgs[text] = M.fromObject(await m.getQuotedObj()).toJSON()
-    if (db.data.chats[m.chat].getmsg) return m.reply(`Berhasil menambahkan pesan dengan nama '${text}'
+    if (db.data.chats[m.chat].getmsg) return m.reply(`Mensagem adicionada com sucesso '${text}'
     
-Akses dengan mengetik '${text}'`)
-    else return conn.sendButton(m.chat, `Berhasil menambahkan pesan dengan nama '${text}'
+Acesse digitando '${text}'`)
+    else return conn.sendButton(m.chat, `Mensagem adicionada com sucesso '${text}'
 
-Akses dengan ${usedPrefix}get${which} ${text}
+Acesse com ${usedPrefix}get${which} ${text}
 
-Jika Getmsg diaktifkan maka tidak perlu lagi mengetik *${usedPrefix}get${which}*`, 'Kitagawa ✨', 'Aktifkan', '.1 getmsg', m)
+Se o Getmsg estiver ativado, não há mais necessidade de digitar*${usedPrefix}get${which}*`, 'Kitagawa ✨', 'Aktifkan', '.1 getmsg', m)
 }
 handler.help = ['vn', 'msg', 'video', 'gif', 'audio', 'img', 'sticker'].map(v => 'add' + v + ' <texto>')
 handler.tags = ['database']

@@ -1,16 +1,16 @@
 const roles = {
   /*
-  'Role Name': <Minimal Level To Obtain this Role>
+  'Nome da função': <Nível mínimo para obter esta função>
   */
-  'Beginner': 0,
-  'Kitten Town': 10,
-  'Black Woods': 20,
+  'Principiante': 0,
+  'Cidade dos Gatinhos': 10,
+  'Bosques Negros': 20,
   'Farmount': 30,
   'Rosenvale': 40,
   'Amberhill': 50,
-  'Master Fap': 60,
-  'Master Woods': 80,
-  'Legend': 90
+  'Mestre Blast': 60,
+  'Mestre Woods': 80,
+  'Lenda': 90
 }
 
 module.exports = {

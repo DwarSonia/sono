@@ -1,7 +1,7 @@
 let handler = async (m, { command, text }) => {
   m.reply(`
-*Pertanyaan:* ${command} ${text}
-*Jawaban:* ${pickRandom(['Ya', 'Mungkin iya', 'Mungkin', 'Mungkin tidak', 'Tidak', 'Tidak mungkin'])}
+*Pergunta:* ${command} ${text}
+*Responder:* ${pickRandom(['Sim', 'Talvez sim', 'Talvez', 'Talvez não', 'Não', 'De jeito nenhum'])}
 `.trim())
 }
 handler.help = ['apakah <pertanyaan>']

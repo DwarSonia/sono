@@ -1,12 +1,12 @@
 let handler = async (m, { conn, usedPrefix }) => {
     let id = m.chat
     conn.vote = conn.vote ? conn.vote : {}
-    if (!(id in conn.vote)) return conn.sendButton(m.chat, `Tidak ada voting di chat ini!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+vote`, m)
+    if (!(id in conn.vote)) return conn.sendButton(m.chat, `Sem votação neste chat!`, 'Kitagawa ✨', 'Mulai', `${usedPrefix}+vote`, m)
     let [reason, upvote, devote] = conn.vote[id]
     conn.sendButton(m.chat, `
 「 Voting 」
 
-Alasan: ${reason}
+Razão: ${reason}
 
 ╭─「 Upvote 」
 │ _Total: ${upvote.length}_

@@ -4,7 +4,7 @@ let handler = async (m, { command, usedPrefix, text }) => {
     let msgs = global.db.data.msgs
     if (!text in msgs) return conn.sendButton(m.chat, `'${text}' não listado!`, 'Kitagawa ✨', 'Lista de Mensagens', `${usedPrefix}list${which}`, m)
     delete msgs[text]
-    m.reply(`Berhasil menghapus pesan dengan nama '${text}'`)
+    m.reply(`Mensagem excluída com sucesso'${text}'`)
 }
 handler.help = ['vn', 'msg', 'video', 'gif', 'audio', 'img', 'sticker'].map(v => 'del' + v + ' <texto>')
 handler.tags = ['database']

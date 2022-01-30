@@ -2,7 +2,7 @@ let request = require('request')
 let cheerio = require('cheerio')
 
 let handler = async (m, { text }) => {
-  if (!text) throw 'Namanya siapa?'
+  if (!text) throw 'Qual é o nome?'
   let nama = text
   request.get({
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -17,9 +17,9 @@ let handler = async (m, { text }) => {
     console.log("" + h)
     m.reply(
       `
-      Arti dari nama ${nama} adalah
+      O significado do nome ${nama} é
 -----------------------------------
-         Nama ${nama} ${h}
+         Nome ${nama} ${h}
          
 -----------------------------------
 `)

@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async(m, { conn, text, usedPrefix, command}) => {
     let [q, n] = text.split `|`
-    if (!q) throw `Ketik ${usedPrefix + command} <teks | author>`
+    if (!q) throw `Modelo ${usedPrefix + command} <teks | author>`
     let user = global.db.data.users[m.sender].name
     let name = n ? n : user ? user : await conn.getName(m.sender)
     let res = await fetch(`https://terhambar.com/aw/qts/?kata=${q}&author=${name}&tipe=random`)

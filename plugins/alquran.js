@@ -1,8 +1,8 @@
 let fetch = require('node-fetch')
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!(args[0] || args[1])) throw `contoh:\n${usedPrefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
-    if (isNaN(args[0]) || isNaN(args[1])) throw `contoh:\n${usedPrefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+    if (!(args[0] || args[1])) throw `exemplo:\n${usedPrefix + command} 1 2\n\nentão o resultado é a surata Al-Fatihah verso 2 junto com o áudio, e o verso é apenas 1`
+    if (isNaN(args[0]) || isNaN(args[1])) throw `exemplo:\n${usedPrefix + command} 1 2\n\nentão o resultado é a surata Al-Fatihah verso 2 junto com o áudio, e o verso é apenas 1`
 
     let res = await fetch(global.API('https://islamic-api-indonesia.herokuapp.com', '/api/data/quran', { surah: args[0], ayat: args[1] }))
     if (!res.ok) throw await res.text()

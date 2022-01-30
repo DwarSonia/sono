@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.tebaklirik = conn.tebaklirik ? conn.tebaklirik : {}
     let id = m.chat
     if (id in conn.tebaklirik) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.tebaklirik[id][0])
+        conn.reply(m.chat, 'Ainda há perguntas sem resposta neste chat', conn.tebaklirik[id][0])
         throw false
     }
     let res = await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebaklirik.json')
@@ -17,15 +17,15 @@ let handler = async (m, { conn, usedPrefix }) => {
     let caption = `
 ${json.soal}
 
-Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}teli untuk bantuan
+Timeout *${(timeout / 1000).toFixed(2)} segundos*
+Modelo ${usedPrefix}teli untuk bantuan
 Bonus: ${poin} XP
     `.trim()
     conn.tebaklirik[id] = [
         await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebaklirik[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.tebaklirik[id][0])
+            if (conn.tebaklirik[id]) conn.reply(m.chat, `O tempo acabou!\nA resposta é *${json.jawaban}*`, conn.tebaklirik[id][0])
             delete conn.tebaklirik[id]
         }, timeout)
     ]

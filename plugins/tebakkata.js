@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.tebakkata = conn.tebakkata ? conn.tebakkata : {}
     let id = m.chat
     if (id in conn.tebakkata) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.tebakkata[id][0])
+        conn.reply(m.chat, 'Ainda há perguntas sem resposta neste chat', conn.tebakkata[id][0])
         throw false
     }
     let res = await fetch(global.API('xteam', '/game/tebakkata', {}, 'APIKEY'))
@@ -16,15 +16,15 @@ let handler = async (m, { conn, usedPrefix }) => {
     let caption = `
 ${json.result.soal}
 
-Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}teka untuk bantuan
+Timeout *${(timeout / 1000).toFixed(2)} segundos*
+Modelo ${usedPrefix}teka para ajuda
 Bonus: ${poin} XP
 `.trim()
     conn.tebakkata[id] = [
         await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebakkata[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, conn.tebakkata[id][0])
+            if (conn.tebakkata[id]) conn.reply(m.chat, `O tempo acabou!\nA resposta é *${json.result.jawaban}*`, conn.tebakkata[id][0])
             delete conn.tebakkata[id]
         }, timeout)
     ]
