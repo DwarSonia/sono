@@ -145,8 +145,8 @@ module.exports = {
                 console.log('[ON-LINE] Sim, eu ainda estou ONLIME')
                 var options = {
                     host: 'https://projecttesty.herokuapp.com',
-                    //port: 80,
-                    //path: '/'
+                    port: 8080,
+                    path: '/'
                 };
                 http.get(options, function (res) {
                     res.on('data', function (chunk) {
