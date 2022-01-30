@@ -24,7 +24,7 @@ let handler = async (m, { conn }) => {
         listType: 1
     }
     //await reply2(m, { conn })
-    await conn.sendMessage(m.chat, button, MessageType.listMessage, qtod(m))
+    await conn.sendMessage(m.chat, button, MessageType.listMessage, reply2(m))
 
     // fecha o handle
 }
