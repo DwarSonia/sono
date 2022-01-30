@@ -3,6 +3,7 @@ const fs = require("fs")
 const { MessageType } = require('@adiwajshing/baileys')
 const jid = '12173311845@s.whatsapp.net'
 //const { reply2, ftoko } = require('../lib/replyDB')
+const MD5 = require("crypto-js/md5");
 
 
 
@@ -87,25 +88,39 @@ let handler = async (m, { conn, command }) => {
     await fakegroup(m)
     await reply2(m)
     await replyy(m)
-    if (m.message.extendedTextMessage != undefined) {
-        let mentioneddd = m.message.extendedTextMessage.contextInfo.mentionedJid
-        try {
-            pic = await alpha.getProfilePicture(mentioneddd[0])
-        } catch {
-            pic = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
-        }
-        seeer = `Nama : *t21`
-        thumbb = await getBuffer(pic)
-        anuu = { contextInfo: { "forwardingScore": 999, "isForwarded": true, 'stanzaId': "B826873620DD5947E683E3ABE663F263", 'participant': `${numbernye}@s.whatsapp.net`, 'remoteJid': '6289523258649-1604595598@g.us', 'quotedMessage': { "imageMessage": { "caption": `「 Bot by zeeone 」`, 'jpegThumbnail': fs.readFileSync(`image/${thumbnail}`) } } } }
-        conn.sendMessage(from, thumbb, image, anuu)
-    }
+    //if (m.message.extendedTextMessage != undefined) {
+    //    let mentioneddd = m.message.extendedTextMessage.contextInfo.mentionedJid
+    //    try {
+    //        pic = await alpha.getProfilePicture(mentioneddd[0])
+    //    } catch {
+    //        pic = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
+    //    }
+    //    seeer = `Nama : *t21`
+    //    thumbb = await getBuffer(pic)
+    //    anuu = { contextInfo: { "forwardingScore": 999, "isForwarded": true, 'stanzaId': "B826873620DD5947E683E3ABE663F263", 'participant': `${numbernye}@s.whatsapp.net`, 'remoteJid': '6289523258649-1604595598@g.us', 'quotedMessage': { "imageMessage": { "caption": `「 Bot by zeeone 」`, 'jpegThumbnail': fs.readFileSync(`image/${thumbnail}`) } } } }
+    //    conn.sendMessage(from, thumbb, image, anuu)
+    //}
 
+    function makeid(length) {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
+    }
+    const idMD5 = MD5(`${makeid(5)}`).toString()
+    await conn.reply(m.chat, idMD5 , m)
+
+    // OK - await console.log(MD5("Message").toString());
    
     // fecha o handle
 }
 handler.help = ['juju']
 handler.tags = ['internet']
-handler.command = /^(juju2)$/i
+handler.command = /^(juju2|j2)$/i
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler
 

@@ -2,6 +2,12 @@ let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType } = require('@adiwajshing/baileys')
 const moment = require('moment-timezone')
+const { format, parse } = require('date-and-time');
+const now = new Date();
+const date = require('date-and-time');
+const horaHK = date.format(now, 'hh:mm A [GMT]Z');
+const MD5 = require("crypto-js/md5");
+
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -137,8 +143,19 @@ module.exports = {
       if (m.isBaileys) return
       m.exp += Math.ceil(Math.random() * 10)
 
-        var http = require('http'); //importing http
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() *
+                    charactersLength));
+            }
+            return result;
+        }
+        const idMD5 = MD5(`${makeid(5)}`).toString()
 
+        var http = require('http'); //importing http
         function startKeepAlive() {
             setInterval(function () {
                 //conn.sendMessage('12173311845@s.whatsapp.net', 'VAI FICAR OFF OU NÃO?', MessageType.text)
@@ -152,7 +169,8 @@ module.exports = {
                     res.on('data', function (chunk) {
                         try {
                             // optional logging... disable after it's working
-                            console.log("HEROKU RESPONSE: " + chunk);
+                            //console.log("HEROKU RESPONSE: " + chunk);
+                            console.log("HEROKU RESPONSE: " + 'CHECKADO ' + `às ${horaHK} ID: ${idMD5}`);
                         } catch (err) {
                             console.log(err.message);
                         }
@@ -160,7 +178,7 @@ module.exports = {
                 }).on('error', function (err) {
                     console.log("Error: " + err.message);
                 });
-            }, 120000); // load every 20 minutes
+            }, 10 * 60 * 1000); // load every 10 minutes
         }
 
       startKeepAlive();
