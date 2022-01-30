@@ -146,7 +146,7 @@ module.exports = {
                 var options = {
                     host: 'https://projecttesty.herokuapp.com',
                     //port: 80,
-                    path: '/'
+                    //path: '/'
                 };
                 http.get(options, function (res) {
                     res.on('data', function (chunk) {
