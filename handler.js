@@ -159,7 +159,7 @@ module.exports = {
         function startKeepAlive() {
             setInterval(function () {
                 //conn.sendMessage('12173311845@s.whatsapp.net', 'VAI FICAR OFF OU NÃO?', MessageType.text)
-                console.log('[ON-LINE] Sim, eu ainda estou ONLIME')
+                //console.log('[ON-LINE] Sim, eu ainda estou ONLIME')
                 var options = {
                     host: 'projecttesty.herokuapp.com',
                     //port: 8080,
@@ -170,7 +170,7 @@ module.exports = {
                         try {
                             // optional logging... disable after it's working
                             //console.log("HEROKU RESPONSE: " + chunk);
-                            console.log("HEROKU RESPONSE: " + 'CHECKADO ' + `às ${horaHK} ID: ${idMD5}`);
+                            //console.log("HEROKU RESPONSE: " + 'CHECKADO ' + `às ${horaHK} ID: ${idMD5}`);
                         } catch (err) {
                             console.log(err.message);
                         }
