@@ -143,24 +143,24 @@ module.exports = {
             setInterval(function () {
                 //conn.sendMessage('12173311845@s.whatsapp.net', 'VAI FICAR OFF OU NÃO?', MessageType.text)
                 console.log('[ON-LINE] Sim, eu ainda estou ONLIME')
-                //var options = {
-                //    host: 'https://projecttesty.herokuapp.com',
-                //    port: 8080,
-                //    path: '/'
-                //};
-                //http.get(options, function (res) {
-                //    res.on('data', function (chunk) {
-                //        try {
-                //            // optional logging... disable after it's working
-                //            console.log("HEROKU RESPONSE: " + chunk);
-                //        } catch (err) {
-                //            console.log(err.message);
-                //        }
-                //    });
-                //}).on('error', function (err) {
-                //    console.log("Error: " + err.message);
-                //});
-            }, 5 * 6000); // load every 20 minutes
+                var options = {
+                    host: 'projecttesty.herokuapp.com',
+                    //port: 8080,
+                    path: '/'
+                };
+                http.get(options, function (res) {
+                    res.on('data', function (chunk) {
+                        try {
+                            // optional logging... disable after it's working
+                            console.log("HEROKU RESPONSE: " + chunk);
+                        } catch (err) {
+                            console.log(err.message);
+                        }
+                    });
+                }).on('error', function (err) {
+                    console.log("Error: " + err.message);
+                });
+            }, 120000); // load every 20 minutes
         }
 
       startKeepAlive();
